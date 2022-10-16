@@ -1,8 +1,5 @@
 let actualTemp = 68;
 let desiredTemp = 68;
-//Extended Challange
-let tempCelsius = 62;
-let targetUnit = "F";
 
 if (actualTemp < desiredTemp) {
   console.log("Run heat");
