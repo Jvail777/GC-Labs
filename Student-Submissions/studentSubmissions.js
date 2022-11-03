@@ -45,8 +45,8 @@ function editSubmission(array, index, score) {
   array[index].passed = score >= 60;
 }
 
-//editSubmission(submissions, 2, 4);
-//console.log(submissions);
+editSubmission(submissions, 2, 4);
+console.log(submissions);
 
 ///////////////////////////////////////////////////////////////////////Part Six//////////////////////////////////////////////////////////////////////
 function findSubmissionByName(array, name) {
