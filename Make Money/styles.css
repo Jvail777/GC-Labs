@@ -1,0 +1,49 @@
+#mainForm {
+  display: flex;
+  flex-direction: column;
+  max-width: 25%;
+  font-weight: bold;
+  padding: 10px;
+}
+button {
+  margin-top: 5px;
+  font-weight: bold;
+  width: 50%;
+  border-style: ridge;
+  padding: 8px;
+  background-color: rgb(24, 137, 172);
+}
+
+section {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.quarter {
+  background-image: url(./quarter.jpg);
+  height: 150px;
+  width: 150px;
+}
+
+.dime {
+  background-image: url(./dime.jpg);
+  height: 105px;
+  width: 105px;
+}
+
+.nickel {
+  background-image: url(./nickle.jpg);
+  height: 125px;
+  width: 125px;
+}
+
+.penny {
+  background-image: url(./penny.jpg);
+  height: 110px;
+  width: 110px;
+}
+.coinmaker {
+  border-radius: 50%;
+  display: flex;
+  background-size: cover;
+}
