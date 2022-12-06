@@ -1,0 +1,45 @@
+body {
+  background-color: #3d99bb;
+}
+
+.h1s {
+  display: flex;
+  border: solid black 2px;
+  border-radius: 10px;
+  color: azure;
+  background-color: rgb(212, 143, 14);
+}
+
+.imgs {
+  border: solid black 5px;
+  border-radius: 30px;
+}
+
+a {
+  display: flex;
+  color: rgb(0, 0, 0);
+}
+
+#mainForm {
+  display: flex;
+  justify-content: flex-end;
+}
+
+input {
+  border-radius: 5px;
+}
+
+button {
+  border-radius: 5px;
+}
+
+#title {
+  text-decoration: underline;
+  font-size: 50px;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
