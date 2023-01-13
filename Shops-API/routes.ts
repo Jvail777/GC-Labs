@@ -1,5 +1,6 @@
 import { Router, Request, Response } from "express";
 import { Shop } from "./shop";
+import {body, validationResult} from 'express-validator'
 
 const shops: Shop[] = [
     { id: 1, name: "Pepper's Pizza", rating: 4.5 },
@@ -32,7 +33,11 @@ shopRouter.get( "/:id", async (req: Request, res: Response): Promise<Response> =
   }
 );
 
-shopRouter.post("/", async (req: Request, res: Response): Promise<Response> => {
+shopRouter.post("/", body('name').isLength({min: 3}), body('rating').isFloat({min: 0, max:5}), async (req: Request, res: Response): Promise<Response> => {
+    const errors = validationResult(req);
+            if (!errors.isEmpty()) {
+            return res.status(400).json({ errors: errors.array() });
+            }
     let newItem: Shop = {
         
         id: GetNextId(),

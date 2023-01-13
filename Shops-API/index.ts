@@ -1,6 +1,7 @@
 import express, {Application, Request, Response} from "express";
 import { shopRouter } from "./routes";
 
+
 const app:Application = express();
 
 const port = 3001;
