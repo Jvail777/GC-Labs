@@ -29,15 +29,13 @@ input {
   width: 45px;
   border: none;
   font-size: 120%;
+  padding-left: 20px;
 }
 
 button:active {
   background-color: #1e60a9;
 }
 
-button:disabled {
-  background-color: gray;
-}
 
 .button-bar {
   display: inline-block;
