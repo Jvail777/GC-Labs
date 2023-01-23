@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat&family=Roboto:wght@300&family=Secular+One&family=Signika+Negative:wght@500&display=swap');
+
+
+.Ad {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 4px solid #222;
+    padding: 10px 30px;
+    color: #000;
+    font-weight: bold;
+    width: 160px;
+    height: 120px;
+    box-shadow: 0 1px 4px 3px #888;
+    margin-bottom: 20px;
+}
+
+.propsFlavor {
+    font-family: 'Caveat', cursive;
+}
+
+.Ad p {
+    margin: 0;
+}
+
+.Ad--dark {
+    color: #fff;
+    background-color: #222;
+    border-color: white;
+}

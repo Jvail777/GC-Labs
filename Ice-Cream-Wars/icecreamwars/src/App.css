@@ -1,0 +1,19 @@
+.main {
+  display: flex;
+  flex-direction: row;
+  padding-left: 40px;
+  padding-bottom: 50px;
+}
+
+.main>* {
+  flex: 1;
+  margin: 25px;
+}
+
+@media screen and (max-width: 768px) {
+.main {
+  display: flex;
+  flex-direction: column;
+}
+
+}

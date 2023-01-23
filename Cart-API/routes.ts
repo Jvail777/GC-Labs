@@ -3,26 +3,26 @@ import { Item } from "./item";
 
 //hard code data
 let itemArray: Item[] = [
-  { id: 1, quantity: 20, price: 7.99, product: "Eggs" },
-  { id: 2, quantity: 15, price: 2.79, product: "Milk" },
-  { id: 3, quantity: 10, price: 4.49, product: "Butter" },
-  { id: 4, quantity: 52, price: 3.99, product: "Cheese" },
-  { id: 5, quantity: 30, price: 1.99, product: "Bread" },
-  { id: 6, quantity: 12, price: 3.49, product: "Apples" },
-  { id: 7, quantity: 25, price: 5.99, product: "Oranges" },
-  { id: 8, quantity: 40, price: 2.99, product: "Bananas" },
-  { id: 9, quantity: 50, price: 6.99, product: "Lemons" },
-  { id: 10, quantity: 15, price: 8.99, product: "Limes" },
-  { id: 11, quantity: 20, price: 9.99, product: "Grapes" },
-  { id: 12, quantity: 30, price: 4.99, product: "Pineapple" },
-  { id: 13, quantity: 40, price: 3.99, product: "Mango" },
-  { id: 14, quantity: 15, price: 2.99, product: "Strawberries" },
-  { id: 15, quantity: 25, price: 1.99, product: "Blueberries" },
-  { id: 16, quantity: 10, price: 6.99, product: "Raspberries" },
-  { id: 17, quantity: 20, price: 8.99, product: "Blackberries" },
-  { id: 18, quantity: 50, price: 4.99, product: "Cantaloupe" },
-  { id: 19, quantity: 40, price: 3.99, product: "Honeydew" },
-  { id: 20, quantity: 30, price: 2.99, product: "Watermelon" },
+  { id: 1, quantity: 20, price: 7.99, product: "Eggs", isActive: true },
+  { id: 2, quantity: 15, price: 2.79, product: "Milk", isActive: true },
+  { id: 3, quantity: 10, price: 4.49, product: "Butter", isActive: true },
+  { id: 4, quantity: 52, price: 3.99, product: "Cheese", isActive: true },
+  { id: 5, quantity: 30, price: 1.99, product: "Bread", isActive: true },
+  { id: 6, quantity: 12, price: 3.49, product: "Apples", isActive: true },
+  { id: 7, quantity: 25, price: 5.99, product: "Oranges", isActive: true },
+  { id: 8, quantity: 40, price: 2.99, product: "Bananas", isActive: true },
+  { id: 9, quantity: 50, price: 6.99, product: "Lemons", isActive: true },
+  { id: 10, quantity: 15, price: 8.99, product: "Limes", isActive: true },
+  { id: 11, quantity: 20, price: 9.99, product: "Grapes", isActive: true },
+  { id: 12, quantity: 30, price: 4.99, product: "Pineapple", isActive: true },
+  { id: 13, quantity: 40, price: 3.99, product: "Mango", isActive: true },
+  { id: 14, quantity: 15, price: 2.99, product: "Strawberries", isActive: true },
+  { id: 15, quantity: 25, price: 1.99, product: "Blueberries", isActive: true },
+  { id: 16, quantity: 10, price: 6.99, product: "Raspberries", isActive: true },
+  { id: 17, quantity: 20, price: 8.99, product: "Blackberries", isActive: true },
+  { id: 18, quantity: 50, price: 4.99, product: "Cantaloupe", isActive: true },
+  { id: 19, quantity: 40, price: 3.99, product: "Honeydew", isActive: true },
+  { id: 20, quantity: 30, price: 2.99, product: "Watermelon", isActive: true },
 ];
 
 export const itemRouter = Router();
@@ -32,19 +32,19 @@ export const itemRouter = Router();
 itemRouter.get("/", async (req: Request, res: Response): Promise<Response> => {
   if (req.query.maxPrice !== undefined) {
     let underArray = itemArray.filter(
-      (x) => x.price <= Number(req.query.maxPrice)
+      (x) => x.price <= Number(req.query.maxPrice) && x.isActive
     );
     return res.status(200).json(underArray);
   } else if (req.query.prefix !== undefined) {
     let startsWithArray = itemArray.filter((x) =>
-      x.product.startsWith(String(req.query.prefix))
+      x.product.startsWith(String(req.query.prefix))&& x.isActive
     );
     return res.status(200).json(startsWithArray);
   } else if (req.query.pageSize !== undefined) {
     let pageSizeArray = itemArray.slice(0, Number(req.query.pageSize));
-    return res.status(200).json(pageSizeArray);
+    return res.status(200).json(pageSizeArray.filter((x) => x.isActive));
   } else {
-    return res.status(200).json(itemArray);
+    return res.status(200).json(itemArray.filter((x) => x.isActive));
   }
 });
 
@@ -65,6 +65,7 @@ itemRouter.post("/", async (req: Request, res: Response): Promise<Response> => {
     product: req.body.product,
     price: req.body.price,
     quantity: req.body.quantity,
+    isActive: true
   };
 
   itemArray.push(newItem);
@@ -101,6 +102,10 @@ itemRouter.delete(
     }
   }
 );
+
+
+
+
 
 function GetNextId() {
   return Math.max(...itemArray.map((x) => x.id)) + 1;
