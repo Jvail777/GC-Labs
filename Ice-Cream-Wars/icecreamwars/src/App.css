@@ -1,19 +1,38 @@
 .main {
   display: flex;
   flex-direction: row;
-  padding-left: 40px;
+  padding-left: 55px;
   padding-bottom: 50px;
+  
 }
 
-.main>* {
+.main > * {
   flex: 1;
   margin: 25px;
 }
 
-@media screen and (max-width: 768px) {
-.main {
-  display: flex;
-  flex-direction: column;
+.Ad {
+  margin: 20px;
 }
 
+.Ads {
+  display: flex;
+  flex-direction: row;
+  padding-bottom: 50px;
+  justify-content: center;
+}
+
+#AdDesign {
+  padding-right: 700px;
+}
+
+.votes {
+  padding-left: 100px;
+}
+
+@media screen and (max-width: 768px) {
+  .main {
+    display: flex;
+    flex-direction: column;
+  }
 }

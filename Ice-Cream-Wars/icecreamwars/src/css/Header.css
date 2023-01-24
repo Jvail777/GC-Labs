@@ -1,14 +1,27 @@
-@import url('https://fonts.googleapis.com/css2?family=Caveat&family=Secular+One&family=Signika+Negative:wght@500&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Caveat&family=Secular+One&family=Signika+Negative:wght@500&display=swap");
 
 header {
-    box-shadow: 0px 15px 10px -15px #111;
+  box-shadow: 0px 15px 10px -15px #111;
+  display: flex;
+}
+
+#H1 {
+  display: flex;
+  justify-content: center;
+  flex: 1;
+}
+
+#Greeting {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
 }
 
 h1 {
-    font-family: 'Caveat', cursive;
-    font-size: 3rem;
-    margin: 30px;
-    text-align: center;
-    color: #0e3c7e;
-    padding-bottom: 8px
+  font-family: "Caveat", cursive;
+  font-size: 3rem;
+  margin: 30px;
+  text-align: center;
+  color: #0e3c7e;
+  padding-bottom: 8px;
 }

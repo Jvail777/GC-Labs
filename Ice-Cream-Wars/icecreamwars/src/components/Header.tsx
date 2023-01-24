@@ -1,10 +1,16 @@
 import "../css/Header.css";
+interface HeaderProps {
+  user: string;
+}
 
-function Header() {
+function Header(props: HeaderProps) {
   return (
-    <header>
-      <h1>Ice Cream Wars</h1>
-    </header>
+    <div className="Header">
+      <header>
+        <h1 id="H1">Ice Cream Wars</h1>
+        <p id="Greeting">Welcome {props.user}</p>
+      </header>
+    </div>
   );
 }
 
